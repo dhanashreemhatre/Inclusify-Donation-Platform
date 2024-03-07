@@ -1,0 +1,105 @@
+@media(max-width:600px){
+    body{
+        overflow: hidden;
+    }
+    .login{
+         margin-top: 5rem;
+         margin-left: 1rem;
+         font-family: Poppins;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+  justify-content: space-between;
+  min-height: 90vh;
+    }
+    .login .login_items{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .icon_login{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+    }
+    .heading_login h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+    } 
+    input{
+        width: 88vw;
+        height: 3.625rem;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0.625rem;
+        text-indent: 1rem;
+    }
+    .email-icon {
+    position: absolute;
+    right: 5%;
+    top: calc(36% + 3rem +6vh); /* Adjust the value as needed */
+  }
+  .pass-icon {
+    position: absolute;
+    right: 5%;
+    top: calc(44% + 2vh); /* Adjust the value as needed */
+  }
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+    form button{
+        width: 88vw;
+        height: 3.625rem;
+        background-color: rgba(19, 169, 16, 1);
+        border-radius: 0.625rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        
+    }
+    .google h1{
+        font-size: 0.813rem;
+        color: rgba(149, 149, 149, 1);
+        
+        display: flex;
+        justify-content: center;
+    }
+    .google button{
+        margin-top: 1rem;
+        width: 88vw;
+        display: flex;
+        height: 3.625rem;
+        background-color: rgba(217, 217, 217, 1);
+        border-radius: 0.625rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+        align-items: center;
+        justify-content: center;
+    }
+    .google button h1{
+        font-size: 1.25rem;
+        color: black;
+    }
+    .login .signup{
+        display: flex;
+        font-size: 1rem;
+        justify-content: center;
+        align-content: baseline;
+gap: 0.3rem;
+margin-bottom: 20px;
+  text-align: center;
+    }
+    .login .signup h2{
+        color: rgba(19, 169, 16, 1);
+    }
+}

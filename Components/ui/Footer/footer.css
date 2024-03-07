@@ -1,0 +1,77 @@
+@media(max-width:600px){
+    .footer{
+        margin-top: 1rem;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .footer-items{
+       margin-top: 1rem;
+       margin-left: 1.5rem;
+    }
+       
+    .footer-items .footer_content{
+        display: flex;
+        gap: 3.4rem;
+    }
+    .footer_content_heading h1,p{
+        font-size: 1rem;
+        font-family: Poppins;
+    }
+    .footer_content_heading h2{
+        font-size: 1rem;
+        color: rgba(19, 169, 16, 1);
+    }
+    .circle_footer{
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 5rem;
+        background-color: rgba(84, 201, 55, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .circle_footer p{
+        font-size: 0.625rem;
+        font-weight: bold;
+        width: 10vw;
+    }
+    .links_footer{
+        display: flex;
+        margin-top: 3rem;
+        gap: 3rem;
+    }
+    .links_footer .logo_footer h1{
+        color: rgba(62, 173, 34, 1);
+        font-size: 1.25rem;
+        font-family: Irish Grover;
+        align-self: center;
+    }
+    .links_footer .logo_footer p{
+        font-size: 0.625rem;
+        font-family: Poppins;
+    }
+    .main_links{
+        display: flex;
+        gap: 1.5rem;
+    }
+    .main_links .company h1{
+        font-size: 0.625rem;
+    }
+    .main_links .company  li{
+        list-style: none;
+        font-size: 0.6rem;
+    }
+    .copyright{
+        margin-top: 2rem;
+    }
+    .copyright p{
+        font-size: 0.625rem;
+        font-family: Poppins;
+
+    }
+}

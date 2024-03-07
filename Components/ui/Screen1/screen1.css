@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins&display=swap');
+@media(max-width:600px){
+    .screen1 {
+        padding-left: 5vw;
+         
+      }
+      .screen1 .screen1-items{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 4vw;
+        margin-top: 3vh;
+      }
+      .women-image {
+        margin-right: 2vw;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      .stats {
+        
+        width: 30vw;
+        height: 30vw;
+        object-fit: cover; 
+      }
+      .content{
+        width: 60vw;
+      }
+      .content h1{
+        font-size: 5vw;
+        font-family: Poppins;
+        font-weight: bold;
+      }
+      .content h2{
+        font-size: 2.4vw;
+        font-family: Poppins;
+  margin-top: 0.5vh;
+      }
+      .button_page{
+        display: flex;
+        gap: 5vw;
+      }
+      button {
+        display: flex;
+        
+        width: 22vw;
+      height: 8vw;
+        border-radius: 2vw;
+        background-color: rgba(19, 169, 16, 1);
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5vw;
+        font-weight: bolder;
+        color: white;
+        font-family: Poppins;
+      }
+    
+      .button_page h2{
+        font-size: 3vw;
+        font-family: Poppins;
+        color:rgba(19, 169, 16, 1) ;
+        
+        align-items: center;
+        margin-top: 1vh;
+      }
+      .button_page .arrow{
+        width: 0.688rem;
+        height: 1rem;
+       margin-left: 0.3rem;
+       margin-top: 0.3rem;
+      }
+      .label{
+        display: flex;
+        margin-top: 1rem;
+      }
+      .label h1{
+        font-size: 0.625rem;
+        gap: 0.3rem;
+        margin-top: 0.19rem;
+        font-weight: bold;
+      }
+}

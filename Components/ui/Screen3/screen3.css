@@ -1,0 +1,16 @@
+@media(max-width:600px){
+    .screen3{
+        margin-top: 2rem;
+        padding-left: 5vw;
+    }
+    .screen3 .screen3-items{
+        display: flex;
+        gap:4vw;
+    }
+    .image1{
+        width: 27vw;
+        height: 12vh;
+        border-radius: 0.688rem;
+    }
+    
+}

@@ -1,0 +1,166 @@
+body{
+    background-color: rgba(243, 243, 243, 1);
+}
+
+.main_campaign{
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+}
+
+.main_campaign_heading{
+      display: flex;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+}
+
+@media(max-width:600px){
+    .campaign_box{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       gap: 1.5rem;
+    }
+
+    .campaign_box .campaign_box_education{
+        width: 23rem;
+        height: 40rem;
+        background-color: white;
+        border-radius: 1.5rem;
+        display:flex ;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .child-image{
+        width: 100%;
+        height: 13.75rem;
+        border-radius: 1.6rem;
+    }
+
+    .tag{
+        width: 5.625rem;
+        height: 1.438rem;
+        background-color: rgba(255, 213, 213, 1);
+        border-radius: 0.563rem;
+        margin-left: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tag h1{
+        color: rgba(153, 35, 35, 1);
+        font-size: 0.625rem;
+    }
+
+    .box_main{
+        display: flex;
+        flex-direction: column;
+        gap: 3.7rem;
+    }
+     .box_main .box_main_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center ;
+        gap: 1.5rem;
+        text-align: center;
+     }
+     .box_main .box_main_content h1{
+        font-size: 1rem;
+        font-weight: bold;
+
+     }
+     .box_main .box_main_content p{
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-align: center;
+        width: 70vw;
+
+     }
+
+     .funds{
+        display: flex;
+        gap: 5rem;
+        margin-left: 1rem;
+     }
+
+     .funds .fund_raised{
+         display: flex;
+         gap: 1rem;
+     }
+
+     .fund_raised h1{
+        font-size: 1rem;
+        color: rgba(236, 142, 32, 1);
+        font-weight: bold;
+     }
+      
+     .fund_raised h3{
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgba(62, 173, 34, 1);
+     }
+
+     .donate_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .donate_button button{
+        width: 19.375rem;
+        height: 3.125rem;
+        background-color: rgba(84, 201, 55, 1);
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: white;
+     }
+
+     .campaign_volunteer{
+        margin-top: 2.7rem;
+        width: 100vw;
+        height: 65vh;
+        background-color: white;
+     }
+     
+
+     .campaign_volunteer_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 2rem;
+     }
+
+     .campaign_volunteer_content .volunteer_heading{
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        text-align: center;
+     }
+
+     .campaign_volunteer_content .volunteer_heading h1{
+        font-size: 1.25rem;
+        font-weight: bold;
+     }
+     .campaign_volunteer_content .volunteer_heading p{
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: bold;
+     }
+      
+
+     .volunteer_image{
+        width: 80vw;
+        height: 20.265rem;
+     }
+
+}

@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+#google_translate_element span{
+	display: none;
+}
+.skiptranslate iframe{
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute;
+    top: 0;
+}
+
+body{position: relative;
+	top:0 !important;
+  overflow-x: hidden;
+}
+
+  .goog-logo-link {
+    display: none !important;
+  }
+
+  #google_translate_element .goog-te-gadget{
+    color: white !important;
+  }
+  .goog-te-combo:last-child{
+    display: none;
+  }
+
+  #google_translate_element .goog-te-combo{
+    color: black !important;
+  }
+  #google_translate_element{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main_wrapper{
+    display: flex;
+    flex-direction: column;
+  }
