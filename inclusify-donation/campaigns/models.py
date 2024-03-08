@@ -1,5 +1,7 @@
 # donations/models.py
 from django.db import models
+from accounts.models import Account
+
 
 class Program(models.Model):
     name = models.CharField(max_length=255)
@@ -21,6 +23,7 @@ class ProgramDetail(models.Model):
 class Donation(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    user=models.ForeignKey(Account,on_delete=models.SET_NULL, null=True,blank=True)
     donor_name = models.CharField(max_length=255)
     email=models.EmailField(default="")
     date = models.DateTimeField(auto_now_add=True)
@@ -29,13 +32,15 @@ class Donation(models.Model):
         return f'{self.donor_name} - {self.program.name}'
 
 class Volunteer(models.Model):
-    name = models.CharField(max_length=255)
+    user=models.ForeignKey(Account,on_delete=models.SET_NULL, null=True,blank=True)
+    first_name=models.CharField(max_length=100, default="")
+    last_name = models.CharField(max_length=255)
     email = models.EmailField()
     phone_number=models.CharField(max_length=20)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, on_delete=models.SET_NULL,null=True,blank=True)
 
     def __str__(self):
-        return f'{self.name} - {self.program.name}'
+        return f'{self.first_name}-{self.last_name}'
 
 
 class DonationDetail(models.Model):

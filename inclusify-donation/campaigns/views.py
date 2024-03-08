@@ -36,19 +36,29 @@ def donation_create_api(request, program_id):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['POST'])
-def volunteer_register_api(request, program_id):
-    try:
-        program = Program.objects.get(pk=program_id)
-    except Program.DoesNotExist:
-        return Response({'error': 'Program not found'}, status=status.HTTP_404_NOT_FOUND)
+def volunteer_register_api(request, program_id=None):
+    if program_id is not None:
+        try:
+            program = Program.objects.get(pk=program_id)
+        except Program.DoesNotExist:
+            return Response({'error': 'Program not found'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        program = None
 
     serializer = VolunteerSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save(program=program)
+        if program:
+            serializer.save(program=program)
+            program_name = program.name
+        else:
+            serializer.save()
+            program_name = None
+
         response_data = {
             'volunteer_info': serializer.data,
-            'program_name': program.name,
+            'program_name': program_name,
         }
         return Response(response_data, status=status.HTTP_201_CREATED)
 
