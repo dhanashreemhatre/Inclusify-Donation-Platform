@@ -1,7 +1,5 @@
 @media(max-width:600px){
-    body{
-        overflow: hidden;
-    }
+    
     .login{
          margin-top: 5rem;
          margin-left: 1rem;

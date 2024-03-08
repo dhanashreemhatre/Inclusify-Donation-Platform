@@ -1,5 +1,5 @@
 body{
-    background-color: rgba(243, 243, 243, 1);
+   background-color: #ffffff; 
 }
 
 .main_campaign{
@@ -28,7 +28,7 @@ body{
     .campaign_box .campaign_box_education{
         width: 23rem;
         height: 40rem;
-        background-color: white;
+        background-color: rgba(243, 243, 243, 1);
         border-radius: 1.5rem;
         display:flex ;
         flex-direction: column;
