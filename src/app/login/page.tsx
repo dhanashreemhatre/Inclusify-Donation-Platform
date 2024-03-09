@@ -23,14 +23,48 @@ const LoginPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+       
+        
       });
+      console.log(JSON.stringify({ email, password }));
 
       if (response.ok) {
-        // Successful login, you can redirect the user to the donation page
-        window.location.href = "/donation";
+        if (response.ok) {
+          try {
+            // Parse the response body as JSON to access the JWT token
+            const data = await response.json();
+            console.log(data)
+            const token = data.token; // Assuming the token is returned in a property named 'token'
+    
+            // Store the token in local storage or session storage for later use
+            localStorage.setItem('jwtToken', token);
+    
+            // Redirect the user to the donation page
+            window.location.href = "/donation";
+          } catch (error) {
+            console.error("Error parsing JSON:", error);
+          }
+        } else {
+          // Handle incorrect credentials or other errors
+          console.error("Invalid credentials or server error");
+        }
+        try {
+          // Parse the response body as JSON to access the JWT token
+          const data = await response.json();
+          const token = data.token; // Assuming the token is returned in a property named 'token'
+  
+          // Store the token in local storage or session storage for later use
+          localStorage.setItem('jwtToken', token);
+  
+          // Redirect the user to the donation page
+          window.location.href = "/donation";
+        } catch (error) {
+          console.error("Error parsing JSON:", error);
+        }
       } else {
-        // Handle incorrect credentials
-        console.error("Invalid credentials");
+        
+        // Handle incorrect credentials or other errors
+        console.error("Invalid credentials or server error");
       }
     } catch (error) {
       console.error("Error:", error);
