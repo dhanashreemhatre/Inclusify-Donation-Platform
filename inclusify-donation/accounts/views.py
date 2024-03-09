@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from django.shortcuts import redirect
+from django.http import JsonResponse
 from django.conf import settings
 import os 
 import sys
@@ -10,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 User=settings.AUTH_USER_MODEL
 import datetime,jwt
-from django.contrib.auth import logout
+from django.contrib.auth import logout,authenticate
 from django.contrib.auth import login as django_login 
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -18,8 +19,10 @@ from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
-from django.contrib.auth.decorators import login_required
+
 from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
     
 
@@ -44,36 +47,39 @@ class RegisterView(APIView):
         return redirect('/accounts/login/?command=verification&email='+user.email)
 
 
-   
 
 class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
-
+        
         try:
             user = Account.objects.get(email=email)
         except Account.DoesNotExist:
-            raise AuthenticationFailed("User Not Found")
+            return Response({'error': 'User not found'}, status=404)
 
-        if not user.check_password(password):
-            raise AuthenticationFailed("Incorrect password!")
+        if not user.is_active:
+            return Response({'error': 'User account is not activated'}, status=400)
+
+        # Authenticate the user
+        authenticated_user = authenticate(email=email, password=password)
+        if not authenticated_user:
+            return Response({'error': 'Authentication failed'}, status=400)
 
         # Use Django's login method to log in the user
-        django_login(request, user)
+        django_login(request, authenticated_user)
 
-        # Generate JWT token (as you did before)
+        # Generate JWT token
         payload = {
-            'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat': datetime.datetime.utcnow()
+            'id': authenticated_user.id,
+             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+            'iat': datetime.datetime.utcnow(),
         }
         token = jwt.encode(payload, 'secret', algorithm='HS256')
+        request.session['jwt'] = token
 
-        response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
-        return response
 
+        return Response({'token': token})
 
 
 def volunteer_registration(APIView):
@@ -87,11 +93,13 @@ def volunteer_registration(APIView):
 
     
 
-
-@login_required(login_url='accounts:login')
+@permission_classes([IsAuthenticated])
 def user_logout(request):
-   logout(request)
-   return redirect('accounts:login')
+    logout(request)
+    response = JsonResponse({"message": "Logged out successfully"})
+    response.delete_cookie('jwt')  # Remove the JWT token cookie
+    return response
+
 
 def activate(request,uidb64,token):
    try:

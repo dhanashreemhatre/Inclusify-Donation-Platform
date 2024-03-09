@@ -68,12 +68,24 @@ MIDDLEWARE = [
     
 ]
 
+
 ROOT_URLCONF = 'core.urls'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    # Add other origins as needed
+    'http://127.0.0.1:3000',
+    'http://localhost:3000'
 ]
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
