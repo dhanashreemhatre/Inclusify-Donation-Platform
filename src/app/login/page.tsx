@@ -32,8 +32,8 @@ const LoginPage = () => {
           const data = await response.json();
           const token = data.token;
           
-          localStorage.setItem('jwtToken', token);
-          Cookies.set("loggedin", true);
+         
+          Cookies.set("jwtToken", token);
 
           // Redirect using Next.js router instead of window.location.href
           router.push('/donation');
