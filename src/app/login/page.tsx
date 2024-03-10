@@ -38,6 +38,7 @@ const LoginPage = () => {
     
             // Store the token in local storage or session storage for later use
             localStorage.setItem('jwtToken', token);
+            document.cookie=`jwt_token=${token};path=/`
     
             // Redirect the user to the donation page
             window.location.href = "/donation";
