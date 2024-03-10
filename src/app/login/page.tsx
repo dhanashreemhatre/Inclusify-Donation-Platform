@@ -5,15 +5,17 @@ import home from "./Image/Group 21.png";
 import Link from "next/link";
 import Image from "next/image";
 import Google from "./Image/Google.png";
+import Cookies from "js-cookie"
 import { useRouter } from "next/navigation";
 const LoginPage = () => {
+  const router = useRouter(); // Initialize useRouter
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleLogin = async (e) => {
     e.preventDefault();
-   
-    // Your backend login API endpoint
+
     const apiUrl = "http://127.0.0.1:8000/accounts/login/";
 
     try {
@@ -23,47 +25,22 @@ const LoginPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-       
-        
       });
-      console.log(JSON.stringify({ email, password }));
 
       if (response.ok) {
-        if (response.ok) {
-          try {
-            // Parse the response body as JSON to access the JWT token
-            const data = await response.json();
-            console.log(data)
-            const token = data.token; // Assuming the token is returned in a property named 'token'
-    
-            // Store the token in local storage or session storage for later use
-            localStorage.setItem('jwtToken', token);
-    
-            // Redirect the user to the donation page
-            window.location.href = "/donation";
-          } catch (error) {
-            console.error("Error parsing JSON:", error);
-          }
-        } else {
-          // Handle incorrect credentials or other errors
-          console.error("Invalid credentials or server error");
-        }
         try {
-          // Parse the response body as JSON to access the JWT token
           const data = await response.json();
-          const token = data.token; // Assuming the token is returned in a property named 'token'
-  
-          // Store the token in local storage or session storage for later use
+          const token = data.token;
+          
           localStorage.setItem('jwtToken', token);
-  
-          // Redirect the user to the donation page
-          window.location.href = "/donation";
+          Cookies.set("loggedin", true);
+
+          // Redirect using Next.js router instead of window.location.href
+          router.push('/donation');
         } catch (error) {
           console.error("Error parsing JSON:", error);
         }
       } else {
-        
-        // Handle incorrect credentials or other errors
         console.error("Invalid credentials or server error");
       }
     } catch (error) {
