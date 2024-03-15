@@ -74,7 +74,6 @@ nav .nav-bar .logo a{
     position: relative;
     font-size: 17px;
     font-weight: 400;
-    color: white;
     text-decoration: none;
     padding: 10px;
 }
@@ -96,16 +95,20 @@ nav .nav-bar .logo a{
 }
 
 
-.links_footer .logo_footer h1{
+.logo-footer h1 {
     color: rgba(62, 173, 34, 1);
     font-size: 1.25rem;
-    font-family: Irish Grover;
+    font-family: 'Irish Grover';
+    font-weight: bold;
     align-self: center;
 }
-
 @media (max-width: 790px) {
     nav .nav-bar .sidebarOpen{
         display: block;
+    }
+    nav .nav-bar{
+        flex-direction: row-reverse;
+        display: flex;
     }
     .menu{
         position: fixed;
@@ -144,15 +147,20 @@ nav .nav-bar .logo a{
     .nav-links li a{
         display: block;
         margin-top: 20px;
+        color: white;
     }
     
 
-    .logo-footer h1 {
-        
-        color: rgba(62, 173, 34, 1);
-        font-size: 1.25rem;
-        font-family: 'Irish Grover';
-        font-weight: bold;
-        align-self: center;
+    
+}
+@media (min-width: 791px) {
+    .nav .nav-links li a{
+        color: black;
     }
+    nav .nav-bar{
+        flex-direction: row;
+        display: flex;
+    }
+    
+
 }
