@@ -62,7 +62,7 @@ const Page: React.FC<PageProps> = ({ className }) => {
           <div className="logo-footer">
             <Image
              src="/logo.svg"
-             alt='loading-logo'
+             alt='loading-logo' className='logo-img'
              width={70}
              height={70}
             />

@@ -6,7 +6,7 @@ const page = () => {
       <section>
         <div className="screen2-items">
           <div className="heading">
-            <h1>More People More Impact</h1>
+            <h1>More People<br/> More Impact</h1>
           </div>
           <div className="vertical-line"></div>
           <div className="sub-heading">

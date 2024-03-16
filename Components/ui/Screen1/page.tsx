@@ -14,17 +14,20 @@ const Page = () => {
         <div className="content">
           <h1>PROVIDE HOPE UNITE KINDNESS</h1>
           <h2>Unite goodness through the movement of zakat, charity, and benevolence. Together, let us share for those in need.</h2>
+         <div className="mt-2">
+         <div className="button_page">
+            <button>Get Started</button>
+            <h2><Link href="/login"><u>Donation Process</u></Link></h2>
+            
+          </div>
+          <div className="label">
+          
+            <h5>Registered and directly supervised by the Supervisory Body</h5>
+          </div>
+         </div>
         </div>
       </div>
-      <div className="button_page">
-        <button>Get Started</button>
-        <h2><Link href="/login"><u>Donation Process</u></Link></h2>
-        
-      </div>
-      <div className="label">
-       
-        <h1>Registered and directly supervised by the Supervisory Body</h1>
-      </div>
+      
     </div>
   );
 };

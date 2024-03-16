@@ -23,6 +23,11 @@
         position: relative;
         right: 5vw;
 }
+.logo-footer .logo-img{
+    height: 60px;
+
+}
+
 nav{
     
     top: 0;
@@ -97,7 +102,7 @@ nav .nav-bar .logo a{
 
 .logo-footer h1 {
     color: rgba(62, 173, 34, 1);
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-family: 'Irish Grover';
     font-weight: bold;
     align-self: center;
@@ -123,6 +128,9 @@ nav .nav-bar .logo a{
     }
     nav.active .menu{
         left: -0%;
+    }
+    .logo-footer h1 {
+        font-size: 1.25rem;
     }
     nav.active .nav-bar .navLogo a{
         opacity: 0;

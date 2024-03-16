@@ -37,13 +37,13 @@ const page = () => {
               <h1>Anytime</h1>
               <p>You can access it 24 hours a day, from anywhere and anytime</p>
             </div>
-            <div className="content2">
+            <div className="content1">
               <h1>Safe</h1>
               <p>
                 You data is out responsibility and is guranteed to be secure.
               </p>
             </div>
-            <div className="content3">
+            <div className="content1">
               <h1>Fast</h1>
               <p>
               Payment is completed instantly without the need for a long wait.
