@@ -18,8 +18,7 @@
   justify-content: flex-end;
 }
 .poor{
-  height: 8vh;
-  margin-right: 4vw;
+  height: 35vh;
   border-radius: 1.438rem;
 }
 .main_content_page h1{
@@ -29,7 +28,7 @@
   width: 65vw;
 }
 .main_content_page h2{
-  font-size: 3vw;
+  font-size: 2vw;
   font-family: Poppins;
 margin-top: 2vh;
 width: 65vw;
@@ -64,14 +63,14 @@ width: 65vw;
   margin-top: 1rem;
 }
 .screen5_label h1{
-  font-size: 3vw;
+  font-size: 2vw;
   gap: 0.3rem;
   margin-top: 0.19rem;
   font-weight: bold;
 }
 .campaign{
-  width: 10vw;
-  height: 2.063rem;
+  /* width: 10vw;
+  height: 2.063rem; */
   background-color: rgba(84, 201, 55, 1);
   font-size: 0.875rem;
   font-weight: bold;
@@ -108,8 +107,6 @@ width: 65vw;
     }
     .main_content_page h1{
         font-size: 5vw;
-        font-family: Poppins;
-        font-weight: bold;
         width: 65vw;
       }
       .main_content_page h2{
@@ -127,42 +124,16 @@ width: 65vw;
       }
       .screen5_button h2{
         font-size: 3vw;
-        font-family: Poppins;
-        font-weight: bold;
-        color:rgba(19, 169, 16, 1) ;
-        
-        align-items: center;
         margin-top: 0.4rem;
       }
       .upload{
         margin-left: 1rem;
       }
-      .screen5_button .arrow{
-        width: 0.688rem;
-        height: 1rem;
-       margin-left: 0.3rem;
-       margin-top: 0.3rem;
-      }
-      .screen5_label{
-        display: flex;
-        margin-top: 1rem;
-      }
       .screen5_label h1{
         font-size: 3vw;
-        gap: 0.3rem;
-        margin-top: 0.19rem;
-        font-weight: bold;
       }
       .campaign{
         width: 10vw;
         height: 2.063rem;
-        background-color: rgba(84, 201, 55, 1);
-        font-size: 0.875rem;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        border-radius: 0.5rem;
       }
 }
