@@ -12,7 +12,7 @@ const Page = () => {
       <div className="screen1-items">
         <Image src={Women} alt="women-image" className="stats" priority />
         <div className="content">
-          <h1>PROVIDE HOPE UNITE KINDNESS</h1>
+          <h1>PROVIDE HOPE<br/> UNITE KINDNESS</h1>
           <h2>Unite goodness through the movement of zakat, charity, and benevolence. Together, let us share for those in need.</h2>
          <div className="mt-2">
          <div className="button_page">

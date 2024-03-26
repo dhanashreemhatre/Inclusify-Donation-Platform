@@ -14,7 +14,7 @@ const page = () => {
             <Image src={Poor} alt="poor-image" className="poor" priority />
           </div>
           <div className="main_content">
-            <h1>Empower Dreams, Embrace Uniqueness</h1>
+            <h1>Empower Dreams, <br/>Embrace Uniqueness</h1>
             <h2>
               Discover unique products from diverse creators worldwide. Support
               extraordinary creations that tell remarkable stories. Join us in

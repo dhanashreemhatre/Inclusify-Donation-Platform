@@ -30,7 +30,7 @@
   font-weight: bold;
 }
 .content h2{
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   font-family: Poppins;
 margin-top: 0.5vh;
 }
@@ -40,7 +40,7 @@ margin-top: 0.5vh;
 }
 button {
   display: flex;
-  padding: 1rem 2rem;
+  padding: 0.4rem 2rem;
   border-radius: 1vw;
   background-color: rgba(19, 169, 16, 1);
   align-items: center;
@@ -50,7 +50,9 @@ button {
   color: white;
   font-family: Poppins;
 }
-
+.button_page{
+  margin-top: 8%;
+}
 .button_page h2{
   font-size: 1.3rem;
   font-family: Poppins;
@@ -65,7 +67,7 @@ button {
  margin-top: 0.3rem;
 }
 .label h5{
-  font-size: 1.3rem;
+  font-size: 1rem;
   gap: 0.3rem;
   margin-top: 0.19rem;
   font-weight: bold;
@@ -84,9 +86,9 @@ button {
   gap: 5vw;
 }
   button {
+    padding: 0.4rem 1rem;
     font-size: 2.5vw;
-    width: 22vw;
-  height: 8vw;
+ 
   }
   .button_page h2{
     font-size: 3vw;

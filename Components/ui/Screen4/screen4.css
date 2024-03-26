@@ -12,7 +12,7 @@
   width: 93vw;
   background-color: rgba(1, 20, 42, 0.74);
   border-radius: 1rem;
-  padding: 2%;
+  padding: 4% 2%;
 }
 
 /* Add your existing styles */
@@ -66,7 +66,6 @@ right: 350px; /* Move to the open position when 'open' class is present */
     .box{
         display: flex;
         width: 93vw;
-        height: 18rem;
         background-color: rgba(1, 20, 42, 0.74);
         border-radius: 1rem;
     }
