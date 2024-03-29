@@ -9,6 +9,32 @@ body{
 .container{
     display: flex;
     flex-direction: column;
+    position: relative;
     
     
 }
+body.popup-open {
+    overflow: hidden; /* Prevent scrolling */
+  }
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px); /* Apply a blur effect to the background */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .close_icon {
+    position: relative;
+    bottom: 3.5rem;
+    left: 17.5rem;
+    color: black; /* Set the color of the close icon */
+    cursor: pointer; /* Show pointer cursor on hover */
+    z-index: 1001; /* Ensure the close icon is above the container */
+  }

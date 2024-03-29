@@ -1,0 +1,17 @@
+.popup_container{
+    height: 25vh;
+    width: 70vw;
+    background: linear-gradient(
+    180deg,
+    #66ed5b,
+    #a5f29e 18.65%,
+    #d7f4d5 38.89%,
+    #b3dcaf 67.87%,
+    #73b96d
+  );
+  border-radius: 1rem;
+}
+.bg{
+    height: 100%;
+    width: 100%;
+}

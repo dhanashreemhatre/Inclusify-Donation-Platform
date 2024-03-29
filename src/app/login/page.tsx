@@ -1,14 +1,16 @@
+// page.tsx
 "use client";
 import React, { useState } from "react";
-import "./login.css";
+import commonStyles from "./login.module.css";
 import home from "./Image/Group 21.png";
 import Link from "next/link";
 import Image from "next/image";
 import Google from "./Image/Google.png";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+
 const LoginPage = () => {
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,12 +33,10 @@ const LoginPage = () => {
         try {
           const data = await response.json();
           const token = data.token;
-          
-         
+
           Cookies.set("jwtToken", token);
 
-          // Redirect using Next.js router instead of window.location.href
-          router.push('/donation');
+          router.push("/donation");
         } catch (error) {
           console.error("Error parsing JSON:", error);
         }
@@ -50,33 +50,35 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="login">
-        <div className="login_items">
-          <div className="icon_login">
+      <div className={commonStyles.login}>
+        <div className={commonStyles.login_items}>
+          <div className={commonStyles.icon_login}>
             <Image src={home} alt="loading-image" />
           </div>
-          <div className="heading_login">
+          <div className={commonStyles.heading_login}>
             <h1>Access Your Account</h1>
           </div>
-          <div className="form">
+          <div className={commonStyles.form}>
             <form onSubmit={handleLogin}>
               <input
+                className={commonStyles["login-input"]}
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-
               <input
+                className={commonStyles["login-input"]}
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-
-              <button disabled={loading}>{loading ? "Signing in..." : "Sign in"}</button>
+              <button disabled={loading}>
+                {loading ? "Signing in..." : "Sign in"}
+              </button>
             </form>
-            <div className="google">
+            <div className={commonStyles.google}>
               <h1>-or sign in with-</h1>
               <button>
                 <Image src={Google} alt="loading-image" />
@@ -85,7 +87,7 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-        <div className="signup">
+        <div className={commonStyles.signup}>
           <h1>Don't have an account?</h1>
           <Link href="/signup">
             <h2>Sign up</h2>
