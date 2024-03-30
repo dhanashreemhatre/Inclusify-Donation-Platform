@@ -9,6 +9,7 @@ const page = () => {
             <h1>More People<br/> More Impact</h1>
           </div>
           <div className="vertical-line"></div>
+          <div className="screen-2-text-container">
           <div className="sub-heading">
             <p>
               The kindness you share becomes a beacon of hope for those in need.
@@ -17,6 +18,7 @@ const page = () => {
           </div>
           <div className="button">
             <button>Read More</button>
+          </div>
           </div>
         </div>
       </section>

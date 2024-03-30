@@ -3,18 +3,23 @@ section{
 }
 section .screen2-items{
   display: flex;
+  
 }
 section .screen2-items .heading h1{
-  font-size: 2.3vw;
+  font-size: 1.6rem;
   font-family: Poppins;
   font-weight: bold;
 }
 .vertical-line {
   margin-left: 2vw;
   position: relative;
-  
   border-left: 2px solid rgba(142, 137, 137, 0.69); /* Adjust the color and thickness as needed */
   height: 8vw; /* Adjust the height as needed */
+}
+.screen-2-text-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 section .screen2-items .sub-heading p{
   width: 52vw;
@@ -33,7 +38,7 @@ section .screen2-items .sub-heading p{
   border-radius: 0.5rem;
  margin-left: 4vw;
  margin-top: 1.6vw;
-  font-size: 2vw;
+  font-size: 1.4rem;
   font-family: Poppins;
   position: relative;
   border: 2px solid rgba(84, 201, 55, 1);
@@ -62,19 +67,12 @@ section .screen2-items .sub-heading p{
   .button button{
     width: 18vw;
     height: 1.625rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
     border-radius: 0.5rem;
    margin-left: 4vw;
    margin-top: 1.6vw;
     font-size: 2vw;
-    font-family: Poppins;
     position: relative;
-    border: 2px solid rgba(84, 201, 55, 1);
-    background-color: rgba(205, 239, 202, 0.76);
-    color: rgba(32, 140, 15, 1);
+
   }  
     
 }

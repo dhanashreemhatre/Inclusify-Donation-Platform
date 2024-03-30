@@ -58,9 +58,9 @@ const Page = () => {
       <label htmlFor="price">Enter a Donation Amount</label>
       <input type="number" placeholder="Enter amount"/>
       <label htmlFor="price">Name of Donar</label>
-      <input type="number" placeholder="Your Name"/>
+      <input type="text" placeholder="Your Name"/>
       <label htmlFor="price">Your Email</label>
-      <input type="number" placeholder="Enter Email"/>
+      <input type="text" placeholder="Enter Email"/>
       <button ><Link href="/payment">Pay Now</Link></button>
              </form>
             

@@ -18,17 +18,17 @@
   justify-content: flex-end;
 }
 .poor{
-  height: 35vh;
+  height: 100%;
   border-radius: 1.438rem;
 }
 .main_content_page h1{
-  font-size: 5vw;
+  font-size: 3rem;
   font-family: Poppins;
   font-weight: bold;
   width: 65vw;
 }
 .main_content_page h2{
-  font-size: 2vw;
+  font-size: 1rem;
   font-family: Poppins;
 margin-top: 2vh;
 width: 65vw;
@@ -63,14 +63,13 @@ width: 65vw;
   margin-top: 1rem;
 }
 .screen5_label h1{
-  font-size: 2vw;
+  font-size: 1rem;
   gap: 0.3rem;
   margin-top: 0.19rem;
   font-weight: bold;
 }
 .campaign{
-  /* width: 10vw;
-  height: 2.063rem; */
+  padding: 0.6rem 1rem;
   background-color: rgba(84, 201, 55, 1);
   font-size: 0.875rem;
   font-weight: bold;
@@ -96,10 +95,7 @@ width: 65vw;
         gap: 1rem;
         margin-top: 1rem;
       }
-    .poor-image{
-        display: flex;
-        justify-content: flex-end;
-    }
+   
      .poor{
         height: 8vh;
         margin-right: 4vw;

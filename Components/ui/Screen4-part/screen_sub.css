@@ -2,21 +2,20 @@
     width: 100%;
 }
 .tag{
-    height: 4vh;
-    width: 40vw;
+    padding: 1rem 1.5rem;
     border: 1px solid rgba(95, 239, 101, 0.52);
     background-color: rgba(95, 239, 101, 0.52);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4rem;
+    margin-bottom: 2%;
 }
 .Screen_part_items_subheading{
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   margin-top: 3vh;
 }
 .tag p{
     font-size: 2vw;
@@ -68,13 +67,7 @@
     width: 100%;
 }
 .tag{
-    height: 4vh;
-    width: 40vw;
-    border: 1px solid rgba(95, 239, 101, 0.52);
-    background-color: rgba(95, 239, 101, 0.52);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   padding: 0.6rem 1rem;
     border-radius: 4rem;
 }
 .Screen_part_items_subheading{
