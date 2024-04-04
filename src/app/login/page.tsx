@@ -1,6 +1,5 @@
-// page.tsx
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import commonStyles from "./login.module.css";
 import home from "./Image/Group 21.png";
 import Link from "next/link";
@@ -14,13 +13,36 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [showInvalidCredentialsAlert, setShowInvalidCredentialsAlert] = useState(false);
+
+  useEffect(() => {
+    let timeoutId;
+
+    if (showAlert || showInvalidCredentialsAlert) {
+      timeoutId = setTimeout(() => {
+        setShowAlert(false);
+        setShowInvalidCredentialsAlert(false);
+      }, 2000); // Set timeout for 2 seconds
+    }
+
+    return () => clearTimeout(timeoutId); // Cleanup the timeout when component unmounts or showAlert changes
+  }, [showAlert,showInvalidCredentialsAlert]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "http://127.0.0.1:8000/accounts/login/";
+    // Check if email or password is empty
+    if (!email || !password) {
+      setShowAlert(true);
+      return;
+    }
+
+    const apiUrl = "https://django-donation.vercel.app/accounts/login/";
 
     try {
+      
+      setLoading(true);
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -31,6 +53,7 @@ const LoginPage = () => {
 
       if (response.ok) {
         try {
+         
           const data = await response.json();
           const token = data.token;
 
@@ -41,34 +64,48 @@ const LoginPage = () => {
           console.error("Error parsing JSON:", error);
         }
       } else {
-        console.error("Invalid credentials or server error");
+        setShowInvalidCredentialsAlert(true);
+        setPassword("")
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <div className={commonStyles.login}>
-        <div className={commonStyles.login_items}>
-          <div className={commonStyles.icon_login}>
+      <div className={commonStyles.loginContainer}>
+        <div className={commonStyles.loginItems}>
+          <div className={commonStyles.iconLogin}>
             <Image src={home} alt="loading-image" />
           </div>
-          <div className={commonStyles.heading_login}>
+          <div className={commonStyles.headingLogin}>
             <h1>Access Your Account</h1>
           </div>
           <div className={commonStyles.form}>
+            {showAlert && (
+              <div className="bg-yellow-300 w-80 h-10 flex items-center rounded-md text-white" role="alert">
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Please fill all the fields!!</p>
+              </div>
+            )}
+            {showInvalidCredentialsAlert&& (
+              <div className="bg-red-500 w-90 h-10 flex items-center rounded-md text-white" role="alert">
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Please use correct Credentials!!</p>
+              </div>
+            )}
+           
             <form onSubmit={handleLogin}>
               <input
-                className={commonStyles["login-input"]}
+                className={commonStyles.loginInput}
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                className={commonStyles["login-input"]}
+                className={commonStyles.loginInput}
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -79,8 +116,8 @@ const LoginPage = () => {
               </button>
             </form>
             <div className={commonStyles.google}>
-              <h1>-or sign in with-</h1>
-              <button>
+              <h1 className={commonStyles.googleHeading}>-or sign in with-</h1>
+              <button className={commonStyles.googleButton}>
                 <Image src={Google} alt="loading-image" />
                 <h1>Sign in with Google</h1>
               </button>

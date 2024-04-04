@@ -1,9 +1,10 @@
-// Importing necessary modules
 "use client"
 import { useEffect } from 'react';
 import Script from 'next/script';
 import Main from '../../Components/Shared/Main/page';
-import Navbar from '../../Components/ui/Navbar/page'
+import Navbar from '../../Components/ui/Navbar/page';
+import Link from 'next/link';
+
 export default function Home() {
   useEffect(() => {
     // Function to be called when the Google Translate script is loaded
@@ -30,8 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      {/* Add a key to Script tag to trigger re-render when the key changes */}
+    <div className="main_wrapper">
       <Script key="google-translate-script">
         {`
           function changeLanguage(lang) {
@@ -46,13 +46,12 @@ export default function Home() {
           }
         `}
       </Script>
-      <div className="main_wrapper">
-      <div id="google_translate_element">Translate</div>
-       <Navbar/>
       
-      <Main />
-      </div>
      
-    </>
+      <div id="google_translate_element">Translate</div>
+      <Navbar />
+      <Main />
+     
+    </div>
   );
 }

@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
   }
-.box1{
+.box2{
     display: flex;
     width: 93vw;
     padding: 2% 0;
@@ -39,7 +39,7 @@
 @media(max-width:790px) {
 
     
-    .box1{
+    .box2{
         padding: 4% 0;
     }
 

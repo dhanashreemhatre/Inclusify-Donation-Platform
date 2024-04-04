@@ -1,103 +1,103 @@
+/* login.module.css */
 
-
-body.bodyOverflowHidden {
+.bodyOverflowHidden {
   overflow: hidden;
 }
-.login {
-    margin-top: 8vh;
-    margin-left: 5vw;
-    font-family: Poppins;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 90vh;
-  }
-  
-  .login .login_items {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 5vh;
-  }
-  
-  .login .icon_login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .login .heading_login h1 {
-    font-size: 6vw;
-    font-weight: bold;
-  }
-  
-  .login-input {
-    width: 82vw;
-    height: 6vh;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0.625rem;
-    text-indent: 1rem;
-  }
-  
-  .login form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .login form button {
-    width: 82vw;
-    height: 6vh;
-    background-color: rgba(19, 169, 16, 1);
-    border-radius: 0.625rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .login .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .login .google h1 {
-    font-size: 4vw;
-    color: rgba(149, 149, 149, 1);
-    display: flex;
-    justify-content: center;
-  }
-  
-  .login .google button {
-    margin-top: 3vh;
-    width: 82vw;
-    display: flex;
-    height: 6vh;
-    background-color: rgba(217, 217, 217, 1);
-    border-radius: 0.625rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: white;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .login .google button h1 {
-    font-size: 1.25rem;
-    color: black;
-  }
-  
-  .login .signup {
-    display: flex;
-    font-size: 1rem;
-    justify-content: center;
-    align-content: baseline;
-    gap: 0.3rem;
-    text-align: center;
-  }
-  
-  .login .signup h2 {
-    color: rgba(19, 169, 16, 1);
-  }
-  
+
+.loginContainer {
+  margin-top: 8vh;
+  margin-left: 5vw;
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90vh;
+}
+
+.loginContainer .loginItems {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+.loginContainer .iconLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginContainer .headingLogin h1 {
+  font-size: 6vw;
+  font-weight: bold;
+}
+
+.loginInput {
+  width: 82vw;
+  height: 6vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.625rem;
+  text-indent: 1rem;
+}
+
+.loginContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loginContainer form button {
+  width: 82vw;
+  height: 6vh;
+  background-color: rgba(19, 169, 16, 1);
+  border-radius: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+}
+
+.loginContainer .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.loginContainer .googleHeading {
+  font-size: 4vw;
+  color: rgba(149, 149, 149, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.loginContainer .googleButton {
+  margin-top: 3vh;
+  width: 82vw;
+  display: flex;
+  height: 6vh;
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer .googleButton h1 {
+  font-size: 1.25rem;
+  color: black;
+}
+
+.loginContainer .signup {
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+  align-content: baseline;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.loginContainer .signup h2 {
+  color: rgba(19, 169, 16, 1);
+}

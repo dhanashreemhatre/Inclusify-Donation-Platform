@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
     "cookies": "^0.9.1",
     "google": "^2.1.0",
     "js-cookie": "^3.0.5",

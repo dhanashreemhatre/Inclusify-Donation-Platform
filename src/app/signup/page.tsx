@@ -1,6 +1,6 @@
 // Import necessary modules and libraries
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import home from "./Image/Group 21.png";
@@ -21,6 +21,8 @@ export default function Signup() {
     username: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [passwordmatch,setpasswordmatch]=useState(false)
 
   // Function to reset the form
   const resetForm = () => {
@@ -31,24 +33,38 @@ export default function Signup() {
       username: "",
     });
   };
+  useEffect(() => {
+    let timeoutId;
 
-  const onSignup = async () => {
+    if (showAlert || passwordmatch) {
+      timeoutId = setTimeout(() => {
+        setShowAlert(false);
+        setpasswordmatch(false);
+      }, 2000); // Set timeout for 2 seconds
+    }
+
+    return () => clearTimeout(timeoutId); // Cleanup the timeout when component unmounts or showAlert changes
+  }, [showAlert,passwordmatch]);
+
+  const onSignup = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
     try {
       // Check if any field is empty
       if (!user.email || !user.password || !user.confirmpassword || !user.username) {
-        toast.error("Please fill in all fields");
+        setShowAlert(true);
         return;
       }
 
       // Check if password and confirm password match
       if (user.password !== user.confirmpassword) {
-        toast.error("Password and Confirm Password do not match");
+        setpasswordmatch(true)
         return;
       }
       
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/accounts/sign-up/",
+        "https://django-donation.vercel.app/accounts/sign-up/",
         user
       );
       router.push("/login");
@@ -93,10 +109,21 @@ export default function Signup() {
           <Image src={home} alt="loading-image" />
         </div>
         <div className="heading_signup">
-          <h1>Access Your Account</h1>
+          <h1>Register Your Account</h1>
         </div>
         <div className="form">
+        {showAlert && (
+              <div className="bg-yellow-300 w-80 h-10 flex items-center rounded-md text-white" role="alert">
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Please fill all the fields!!</p>
+              </div>
+            )}
+        {passwordmatch && (
+              <div className="bg-red-600 w-80 h-10 flex items-center rounded-md text-white" role="alert">
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn't Match!!</p>
+              </div>
+            )}
           <form>
+
             <input
               type="email"
               placeholder="Email"

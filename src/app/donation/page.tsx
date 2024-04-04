@@ -44,7 +44,7 @@ const Page = () => {
           </div>
          <div className="form_donation1">
              <form action="/">
-              <label htmlFor="campaign">Select the campaign for which you want to donate  </label>
+              <label htmlFor="campaign" className="ml-8 min-w-80">Select the campaign for which you want to donate  </label>
               <select name="languages" id="lang">
         <option value="javascript">JavaScript</option>
         <option value="php">PHP</option>
@@ -55,12 +55,12 @@ const Page = () => {
         <option value="C++">C++</option>
         <option value="erlang">Erlang</option>
       </select>
-      <label htmlFor="price">Enter a Donation Amount</label>
+      <label htmlFor="price" className="mr-24">Enter a Donation Amount</label>
       <input type="number" placeholder="Enter amount"/>
-      <label htmlFor="price">Name of Donar</label>
+      <label htmlFor="price" className="mr-40">Name of Donar</label>
       <input type="text" placeholder="Your Name"/>
-      <label htmlFor="price">Your Email</label>
-      <input type="text" placeholder="Enter Email"/>
+      <label htmlFor="price" className="mr-48">Your Email</label>
+      <input type="email" placeholder="Enter Email"/>
       <button ><Link href="/payment">Pay Now</Link></button>
              </form>
             

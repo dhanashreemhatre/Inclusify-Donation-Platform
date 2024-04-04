@@ -11,7 +11,7 @@ const page = () => {
       <div className="screen7">
         <div className="screen7-items">
           <div className="poor-image">
-            <Image src={Poor} alt="poor-image" className="poor" priority />
+            <Image src={Poor} alt="poor-image" className="poor " priority />
           </div>
           <div className="main_content">
             <h1>Empower Dreams, <br/>Embrace Uniqueness</h1>
