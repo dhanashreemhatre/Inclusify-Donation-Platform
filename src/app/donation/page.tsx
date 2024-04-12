@@ -1,76 +1,105 @@
-"use client";
-import React, { useState } from "react";
-import "./donation.css";
-import Image from "next/image";
-import tick from "./image/Ok.png";
-import heart from './image/Heart Cross.png'
-import {useRouter} from "next/navigation";
-import toast from "react-hot-toast";
+"use client"
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
-const Page = () => {
+import './donation.css'
 
+const Page = () => {
+  const [formData, setFormData] = useState({
+    amount: "",
+    name: "",
+    email: ""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await axios.post("http://localhost:5000/createOrder", formData);
+      const { data } = response;
+
+      if (data.success) {
+        const options = {
+          key: data.key_id,
+          amount: data.amount,
+          currency: "INR",
+          name: data.product_name,
+          description: data.description,
+          image: "https://dummyimage.com/600x400/000/fff",
+          order_id: data.order_id,
+          handler: function (response) {
+            alert("Payment Succeeded");
+          },
+          prefill: {
+            contact: data.contact,
+            name: data.name,
+            email: data.email,
+          },
+          notes: {
+            description: data.description,
+          },
+          theme: {
+            color: "#2300a3",
+          },
+        };
+
+        const razorpayObject = new window.Razorpay(options);
+        razorpayObject.open();
+      } else {
+        alert(data.msg);
+      }
+    } catch (error) {
+      console.error("Error processing payment:", error);
+    }
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
       <div className="donation">
         <div className="donation_items">
-         
           <div className="company_logo">
             <h1>INCLUSIFY</h1>
             <h2>Empower Justice Through Donations</h2>
-            <div className="company_plans">
-              <div className="company_plans_items">
-                <div className="plans_items1">
-                  <div className="plans_items_content">
-                    <h3>ONE TIME</h3>
-                    <Image src={tick} alt="loading-image" priority />
-                  </div>
-                  <div className="divider_plans"></div>
-                </div>
-                <div className="plans_items2">
-                  <div className="plans_items_content">
-                    <h3>Monthly</h3>
-                    <Image src={heart} alt="loading-image" priority />
-                  </div>
-                </div>
-                <div className="plans_items2">
-                  <div className="plans_items_content">
-                    <h3>Yearly</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-         <div className="form_donation1">
-             <form action="/">
-              <label htmlFor="campaign" className="ml-8 min-w-80">Select the campaign for which you want to donate  </label>
-              <select name="languages" id="lang">
-        <option value="javascript">JavaScript</option>
-        <option value="php">PHP</option>
-        <option value="java">Java</option>
-        <option value="golang">Golang</option>
-        <option value="python">Python</option>
-        <option value="c#">C#</option>
-        <option value="C++">C++</option>
-        <option value="erlang">Erlang</option>
-      </select>
-      <label htmlFor="price" className="mr-24">Enter a Donation Amount</label>
-      <input type="number" placeholder="Enter amount"/>
-      <label htmlFor="price" className="mr-40">Name of Donar</label>
-      <input type="text" placeholder="Your Name"/>
-      <label htmlFor="price" className="mr-48">Your Email</label>
-      <input type="email" placeholder="Enter Email"/>
-      <button ><Link href="/payment">Pay Now</Link></button>
-             </form>
-            
-         </div>
+          <div className="form_donation1">
+            <form onSubmit={handlePayment}>
+              <label htmlFor="amount" className="mr-24">
+                Enter a Donation Amount
+              </label>
+              <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="Enter amount" />
+              <label htmlFor="name" className="mr-40">
+                Name of Donor
+              </label>
+              <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your Name" />
+              <label htmlFor="email" className="mr-48">
+                Your Email
+              </label>
+              <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter Email" />
+              <button type="submit" className="bg-green-600">Pay Now</button>
+            </form>
+          </div>
         </div>
       </div>
     </>
   );
-
 };
-
 
 export default Page;
