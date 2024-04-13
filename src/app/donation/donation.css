@@ -7,6 +7,13 @@ body {
 .donation {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.donation .donation_items{
+  width: 600px;
 }
 .logout{
   width: 4rem;
@@ -51,7 +58,6 @@ body {
 .company_plans_items {
   position: relative;
   top: 5vh;
-  right: 6vw;
 }
 
 .company_plans_items .plans_items1 h3 {
@@ -62,7 +68,6 @@ body {
 }
 
 .divider_plans {
-  width: 85%;
   border: 2px solid rgba(19, 169, 16, 1);
 }
 
@@ -92,8 +97,6 @@ body {
 }
 
 .plans_price_row1 .plan_box {
-  width: 5.125rem;
-  height: 2.563rem;
   border-radius: 0.625rem;
   border: 1px solid white;
   background-color: white;
@@ -173,23 +176,19 @@ form label{
   font-weight: bold;
 }
 select{
-   width: 78vw;
-   height: 5vh;
+  padding: 8px 16px;
    border-radius: 0.5rem;
    padding: 0.6rem;
 }
  input{
-  width: 78vw;
-   height: 5vh;
+  padding: 8px 16px;
    border-radius: 0.5rem;
-   padding: 1.7rem;
    color: rgba(128, 128, 128, 1);
 }
 
 button{
   margin-top: 0.6rem;
-  width: 78vw;
-  height: 5vh;
+  padding: 8px 16px;
   border-radius: 0.5rem;
   font-size: 1.25rem;
   font-weight: bold;
