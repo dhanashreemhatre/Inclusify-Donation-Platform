@@ -119,7 +119,7 @@ export default function Signup() {
             )}
         {passwordmatch && (
               <div className="bg-red-600 w-80 h-10 flex items-center rounded-md text-white" role="alert">
-                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn't Match!!</p>
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn&apos;t Match!!</p>
               </div>
             )}
           <form>
