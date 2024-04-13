@@ -131,6 +131,13 @@ export default function Signup() {
               value={user.email}
               onChange={handleInputChange}
             />
+             <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              value={user.username}
+              onChange={handleInputChange}
+            />
             <input
               type="password"
               placeholder="Password"
@@ -138,13 +145,7 @@ export default function Signup() {
               value={user.password}
               onChange={handleInputChange}
             />
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              value={user.username}
-              onChange={handleInputChange}
-            />
+           
             <input
               type="password"
               placeholder="Confirm-Password"
