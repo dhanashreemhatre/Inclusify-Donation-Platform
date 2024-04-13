@@ -1,8 +1,9 @@
 //razorpay.js
 const Razorpay = require("razorpay");
 const shortid = require("shortid");
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { taxAmt } = req.body;
   //console.log('taxAmt',taxAmt*100)
   if (req.method === "POST") {
