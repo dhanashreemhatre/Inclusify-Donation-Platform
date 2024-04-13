@@ -31,22 +31,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="main_wrapper">
-      <Script key="google-translate-script">
-        {`
-          function changeLanguage(lang) {
-            window.google.translate.translate(
-              document.getElementById('google_translate_element').innerText,
-              'en',
-              lang,
-              function (result) {
-                document.getElementById('google_translate_element').innerText = result.translation;
-              }
-            );
+      <div className="main_wrapper">
+        <Script id="google-translate-inline-script" strategy="beforeInteractive">
+    {`
+      function changeLanguage(lang) {
+        window.google.translate.translate(
+          document.getElementById('google_translate_element').innerText,
+          'en',
+          lang,
+          function (result) {
+            document.getElementById('google_translate_element').innerText = result.translation;
           }
-        `}
-      </Script>
-      
+        );
+      }
+    `}
+  </Script>
      
       <div id="google_translate_element">Translate</div>
       <Navbar />
