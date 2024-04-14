@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './donation.css'
-
+import Image from "next/image";
 const Page = () => {
   const [formData, setFormData] = useState({
     amount: "",
@@ -76,8 +76,17 @@ const Page = () => {
       <div className="donation">
         <div className="donation_items">
           <div className="company_logo">
+            <section className="flex justify-center align-middle text-center">
+              <Image
+              src="/logo.svg"
+              alt='loading-logo' className='logo-img'
+              width={70}
+              height={70}
+              />
             <h1>INCLUSIFY</h1>
-            <h2>Empower Justice Through Donations</h2>
+            </section>
+           
+            <h2 className="ml-5">Empower Justice Through Donations</h2>
           </div>
           <div className="form_donation1">
             <form onSubmit={handlePayment}>
