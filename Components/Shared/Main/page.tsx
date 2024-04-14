@@ -22,7 +22,7 @@ const Page = () => {
 
   const handleClosePopup = () => {
     setPopupClosed(true);
-    localStorage.setItem('popupClosed', true);
+    localStorage.setItem('popupClosed', String(true)); // Convert boolean to string
     document.body.classList.remove('popup-open'); // Remove popup-open class from body
   };
 

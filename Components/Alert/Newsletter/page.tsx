@@ -5,7 +5,11 @@ import welcome from './welcome.png';
 import email from './email_726623.png';
 import { FaPaperPlane } from 'react-icons/fa'; 
 
-const Welcome = ({ onNext }) => {
+interface WelcomeProps {
+  onNext: () => void;
+}
+
+const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
   return (
     <div className={styles.popup_content}>
       <h1>Welcome to <span className={styles.logo}>INCLUSIFY</span>!</h1>
@@ -15,7 +19,7 @@ const Welcome = ({ onNext }) => {
   );
 };
 
-const Mission = ({ onMission }) => {
+const Mission = ({ onMission }: { onMission: () => void }) => {
   return (
     <div className={styles.popup_content}>
       <h1>Empowering  <span className={styles.logo}>DIVERSITY</span>!</h1>
@@ -41,9 +45,8 @@ const News = () => {
       <div className={styles.inputContainer}>
         <input type="email" placeholder='Enter your email' className={styles.fill} />
         <div className={styles.icon}>
-        <FaPaperPlane  className={styles.icon2}/>
+          <FaPaperPlane className={styles.icon2}/>
         </div>
-        
       </div>
     </div>
   );

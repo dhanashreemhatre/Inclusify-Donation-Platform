@@ -125,7 +125,7 @@ const LoginPage = () => {
           </div>
         </div>
         <div className={commonStyles.signup}>
-          <h1>Don't have an account?</h1>
+          <h1>Don&apos;t have an account?</h1>
           <Link href="/signup">
             <h2>Sign up</h2>
           </Link>

@@ -119,7 +119,7 @@ export default function Signup() {
             )}
         {passwordmatch && (
               <div className="bg-red-600 w-80 h-10 flex items-center rounded-md text-white" role="alert">
-                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn't Match!!</p>
+                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn&apos;t Match!!</p>
               </div>
             )}
           <form>
@@ -131,6 +131,13 @@ export default function Signup() {
               value={user.email}
               onChange={handleInputChange}
             />
+             <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              value={user.username}
+              onChange={handleInputChange}
+            />
             <input
               type="password"
               placeholder="Password"
@@ -138,13 +145,7 @@ export default function Signup() {
               value={user.password}
               onChange={handleInputChange}
             />
-            <input
-              type="text"
-              placeholder="Username"
-              name="username"
-              value={user.username}
-              onChange={handleInputChange}
-            />
+           
             <input
               type="password"
               placeholder="Confirm-Password"
