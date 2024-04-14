@@ -17,7 +17,7 @@ const LoginPage = () => {
   const [showInvalidCredentialsAlert, setShowInvalidCredentialsAlert] = useState(false);
 
   useEffect(() => {
-    let timeoutId;
+    let timeoutId: NodeJS.Timeout;
 
     if (showAlert || showInvalidCredentialsAlert) {
       timeoutId = setTimeout(() => {
@@ -29,7 +29,7 @@ const LoginPage = () => {
     return () => clearTimeout(timeoutId); // Cleanup the timeout when component unmounts or showAlert changes
   }, [showAlert,showInvalidCredentialsAlert]);
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e:any) => {
     e.preventDefault();
 
     // Check if email or password is empty

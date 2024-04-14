@@ -3,7 +3,17 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import Main from '../../Components/Shared/Main/page';
 import Navbar from '../../Components/ui/Navbar/page';
-import Link from 'next/link';
+
+declare global {
+  interface Window {
+    googleTranslateElementInit: () => void;
+    google: {
+      translate: {
+        TranslateElement: any; // Adjust the type if you have specific type definitions for TranslateElement
+      };
+    };
+  }
+}
 
 export default function Home() {
   useEffect(() => {
@@ -26,31 +36,31 @@ export default function Home() {
 
     return () => {
       // Cleanup if needed
-      delete window.googleTranslateElementInit;
+      if (window.googleTranslateElementInit) {
+        window.googleTranslateElementInit;
+      }
     };
   }, []);
 
   return (
-      <div className="main_wrapper">
-        <Script id="google-translate-inline-script" strategy="beforeInteractive">
-    {`
-      function changeLanguage(lang) {
-        window.google.translate.translate(
-          document.getElementById('google_translate_element').innerText,
-          'en',
-          lang,
-          function (result) {
-            document.getElementById('google_translate_element').innerText = result.translation;
+    <div className="main_wrapper">
+      <Script id="google-translate-inline-script" strategy="beforeInteractive">
+        {`
+          function changeLanguage(lang) {
+            window.google.translate.translate(
+              document.getElementById('google_translate_element').innerText,
+              'en',
+              lang,
+              function (result) {
+                document.getElementById('google_translate_element').innerText = result.translation;
+              }
+            );
           }
-        );
-      }
-    `}
-  </Script>
-     
+        `}
+      </Script>
       <div id="google_translate_element">Translate</div>
       <Navbar />
       <Main />
-     
     </div>
   );
 }

@@ -24,6 +24,7 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "18.2.55",
     "@types/react-dom": "^18",

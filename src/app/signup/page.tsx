@@ -34,7 +34,7 @@ export default function Signup() {
     });
   };
   useEffect(() => {
-    let timeoutId;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
     if (showAlert || passwordmatch) {
       timeoutId = setTimeout(() => {
@@ -46,7 +46,7 @@ export default function Signup() {
     return () => clearTimeout(timeoutId); // Cleanup the timeout when component unmounts or showAlert changes
   }, [showAlert,passwordmatch]);
 
-  const onSignup = async (e) => {
+  const onSignup = async (e:any) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     try {
@@ -97,7 +97,7 @@ export default function Signup() {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };

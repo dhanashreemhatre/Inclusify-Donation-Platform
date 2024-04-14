@@ -22,7 +22,7 @@ const Page = () => {
 
   const handleClosePopup = () => {
     setPopupClosed(true);
-    localStorage.setItem('popupClosed', true);
+    localStorage.setItem('popupClosed', 'true');
     document.body.classList.remove('popup-open'); // Remove popup-open class from body
   };
 
@@ -31,7 +31,7 @@ const Page = () => {
   useEffect(() => {
     if (!popupClosed && !localStorage.getItem('popupShown')) {
       setPopup(true);
-      localStorage.setItem('popupShown', true);
+      localStorage.setItem('popupShown', 'true');
       document.body.classList.add('popup-open'); // Add popup-open class to body
     }
   }, [popupClosed]);

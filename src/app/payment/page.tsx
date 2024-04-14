@@ -1,6 +1,6 @@
 // Import necessary dependencies
 "use client";
-import { React, useEffect } from "react";
+import React,{ useEffect } from "react";
 import "./payment.css";
 import { useRouter } from "next/navigation"; // Corrected import statement
 import phonepay from './image/icons8-phone-pe-48.png';
