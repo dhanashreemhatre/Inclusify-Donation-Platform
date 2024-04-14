@@ -158,8 +158,9 @@ body{
   
 
  .volunteer_image{
-    width: 80vw;
-    height: 400px;
+    /* width: 80vw;
+    height: 400px; */
+    display: none;
  }
  @media(max-width:880px){
    .campaign_box{

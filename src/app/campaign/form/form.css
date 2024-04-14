@@ -23,6 +23,60 @@ body{
     font-weight: bold;
     color: white;
     width: 80vw;
+}   
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form h1{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+form label{
+    font-size: 1rem;
+    color: rgba(98, 98, 98, 1);
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+form input{
+    width: 50vw;
+    height: 3.5rem;
+    border: 1px solid rgba(98, 98, 98, 1);
+    border-radius: 0.4rem;
+    padding: 1rem;
+}
+
+form input:hover{
+    border: 1px solid rgba(19, 169, 16, 1);
+}
+
+button{
+    margin-top: 1.6rem;
+    width: 50vw;
+    height: 3rem;
+    background-color: rgba(19, 169, 16, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: white;
+    font-weight: bold;
 }
 
 @media(max-width:600px){
@@ -41,7 +95,6 @@ body{
         display: flex;
         flex-direction: column;
         gap: 0.4rem;
-        margin-left: 2rem;
         margin-top: 2rem;
     }
 

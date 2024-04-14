@@ -22,14 +22,22 @@ function page() {
            
         </div>
         <form action="/">
+                <div className='form-group'>
                 <label htmlFor="firstname">First Name</label>
                 <input type="text" />
+                </div>
+                <div className='form-group'>
                 <label htmlFor="lastname">Last Name</label>
                 <input type="text" />
+                </div>
+                <div className='form-group'>
                 <label htmlFor="email">Email</label>
                 <input type="email" />
+                </div>
+                <div className='form-group'>
                 <label htmlFor="phone">Phone Number</label>
                 <input type="phone" />
+                </div>
                 <button>Submit</button>
             </form>
 
