@@ -1,6 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+.popup_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 20vw;
+  gap: 0.5rem;
+}
+.popup_container{
+  height: 55vh;
+  width: 50vw;
+  background: linear-gradient(
+  180deg,
+  #66ed5b,
+  #a5f29e 18.65%,
+  #d7f4d5 38.89%,
+  #b3dcaf 67.87%,
+  #73b96d
+);
+border-radius: 1rem;
+}
+.bg{
+  height: 100%;
+  width: 100%;
+}
+.popup_content h1 .logo{
+  color: rgba(62, 173, 34, 1);
+  font-size: 1.6rem;
+  font-family: 'Irish Grover';
+  font-weight: bold;
+  align-self: center;
+}
+.popup_content1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 29%;
+  left: 40%;
+  gap: 0.5rem;
+}
 
+.popup_content1 h3{
+   font-size: 1rem;
+   color: rgb(10, 154, 65);
+   font-weight: bolder;
+}
+.popup_content1 p{
+   font-size: 0.6rem;
+   font-weight: bolder;
+}
+
+/* Assuming this is your existing CSS */
+.fill{
+  position: relative;
+  bottom: 0.8rem;
+  padding: 1.4rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: none;
+  border-bottom: 1px solid black; /* Example border style, you can adjust as needed */
+  padding: 0.5rem;
+  font-size: 0.8rem; /* Example font size, you can adjust as needed */
+}
+.iconContainer {
+  position: absolute;
+  right: 1.6rem; /* Adjust as needed */
+  top: 22%;
+}
+
+.icon {
+  font-size: 0.3rem;
+  width: 2rem; 
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #66ed5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+  bottom:5vw;
+  right: 1.1rem;
+}
+.icon2 {
+  width: 1rem; 
+  height: 1rem;
+  
+}
 @media(max-width:790px){
 
 
