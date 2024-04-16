@@ -23,7 +23,8 @@ justify-content: space-between;
  font-weight: bold;
 } 
 input{
-  padding: 8px 16px;
+  font-size: 18px;
+  padding: 12px 16px;
  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
  border-radius: 0.625rem;
  text-indent: 1rem;
@@ -50,7 +51,7 @@ form{
 }
 
 form button{
-  padding: 8px 16px;
+  padding: 12px 16px;
  background-color: rgba(19, 169, 16, 1);
  border-radius: 0.625rem;
  font-size: 1.25rem;
@@ -102,6 +103,16 @@ text-align: center;
 }
 @media(max-width:650px){
   .signup .signup_items{
-    width: auto;
+    width: 85%;
+  }
+  .signup{
+    margin-top: 4%;
+  }
+  input{
+    font-size: 18px;
+    padding: 16px;
+  }
+  form button{
+    padding: 16px;
   }
 }
