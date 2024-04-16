@@ -106,14 +106,7 @@
     margin-bottom: 4vh;
 
   }
-  .loginContainer .googleButton {
-    height: 6vh;
-   width: 80vw;
-  }
-  .loginContainer form button {
-    height: 6vh;
-   width: 80vw;
-  }
+  
   .loginContainer{
     gap:4vh;
     margin-top: 0;
@@ -125,11 +118,5 @@
     gap: 6%;
     justify-content: center;
   }
-  .loginInput {
-   height: 6vh;
-   width: 80vw;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0.625rem;
-    text-indent: 1rem;
-  }
+  
 }
