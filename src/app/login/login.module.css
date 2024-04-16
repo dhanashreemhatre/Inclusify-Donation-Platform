@@ -106,6 +106,9 @@
     margin-bottom: 4vh;
 
   }
+  .loginInput {
+    padding: 16px;
+  }
   
   .loginContainer{
     gap:4vh;
@@ -114,7 +117,7 @@
     justify-content: center;
   }
   .loginContainer .loginItems {
-    width: auto;
+    width: 85%;
     gap: 6%;
     justify-content: center;
   }
