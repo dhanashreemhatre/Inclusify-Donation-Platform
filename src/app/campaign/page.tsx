@@ -7,7 +7,20 @@ import child from './image/stephen-andrews-u0zTce7KNlY-unsplash.jpg'
 import volunteer from './image/alexander-simonsen-44al1GlFVxo-unsplash.jpg'
 import Footer from '../../../Components/ui/Footer/page'
 import Link from 'next/link'
+import Cookies from 'js-cookie';
 function page() {
+
+  const handleclick = () => {
+    // Check if JWT token exists in cookies
+    const jwtToken = Cookies.get('jwtToken');
+    if (jwtToken) {
+      // Redirect to /donation
+      window.location.href = '/donation';
+    } else {
+      // Handle scenario where JWT token doesn't exist
+      console.log("JWT token not found in cookies");
+    }
+  }
   return (
     <div>
           <Navbar/>
@@ -45,7 +58,7 @@ function page() {
                             </div>
                           </div>
                           <div className="donate_button">
-                            <button>Donate</button>
+                            <button onClick={handleclick}>Donate</button>
                           </div>
                       </div>
                  </div> 

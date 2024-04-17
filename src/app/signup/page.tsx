@@ -1,12 +1,10 @@
-// Import necessary modules and libraries
-"use client";
+"use client"
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import home from "./Image/Group 21.png";
 import Google from "./Image/Google.png";
 import { useRouter } from 'next/navigation';
-
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import './signup.css'
@@ -22,7 +20,9 @@ export default function Signup() {
   });
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [passwordmatch,setpasswordmatch]=useState(false)
+  const [passwordmatch, setPasswordMatch] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false); // Add state for showing success message
+  const [checkemail, setCheckEmail] = useState(false); // Add state for showing email existence message
 
   // Function to reset the form
   const resetForm = () => {
@@ -33,20 +33,24 @@ export default function Signup() {
       username: "",
     });
   };
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
 
-    if (showAlert || passwordmatch) {
+  useEffect(() => {
+    let timeoutId;
+
+    // Hide alerts after 4 seconds
+    if (showAlert || passwordmatch || showSuccess || checkemail) {
       timeoutId = setTimeout(() => {
         setShowAlert(false);
-        setpasswordmatch(false);
-      }, 2000); // Set timeout for 2 seconds
+        setPasswordMatch(false);
+        setShowSuccess(false);
+        setCheckEmail(false);
+      }, 4000);
     }
 
-    return () => clearTimeout(timeoutId); // Cleanup the timeout when component unmounts or showAlert changes
-  }, [showAlert,passwordmatch]);
+    return () => clearTimeout(timeoutId);
+  }, [showAlert, passwordmatch, showSuccess, checkemail]);
 
-  const onSignup = async (e:any) => {
+  const onSignup = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     try {
@@ -58,46 +62,39 @@ export default function Signup() {
 
       // Check if password and confirm password match
       if (user.password !== user.confirmpassword) {
-        setpasswordmatch(true)
+        setPasswordMatch(true);
         return;
       }
-      
+
       setLoading(true);
       const response = await axios.post(
         "https://django-donation.vercel.app/accounts/sign-up/",
-        user
+        user // Send user data as the request body
       );
-      router.push("/login");
+      
       if (response.status === 201) {
-        console.log("success");
+        setShowSuccess(true);
         toast.success("User registered successfully!");
-
-        // Reset the form
         resetForm();
-
-        // Navigate to the login page
         router.push("/login");
-      } else if (response.status === 409) {
-        // Assuming HTTP status 409 indicates that the email already exists
+      } else if (response.status === 400) {
         toast.error("Email already exists. Please use a different email.");
       } else {
         toast.error("Signup failed. Please check the console for details.");
       }
-    } catch (error: any) {
+    } catch (error) {
+      setCheckEmail(true);
       console.error("Signup failed", error);
-
-      // Log the detailed error response
       if (error.response) {
         console.error("Error response:", error.response.data);
       }
-
       toast.error("Signup failed. Please check the console for details.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleInputChange = (e:any) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
@@ -112,18 +109,27 @@ export default function Signup() {
           <h1>Register Your Account</h1>
         </div>
         <div className="form">
-        {showAlert && (
-              <div className="bg-yellow-300 w-80 h-10 flex items-center rounded-md text-white" role="alert">
-                <strong className="ml-3">Hey!</strong> <p className="ml-3">Please fill all the fields!!</p>
-              </div>
-            )}
-        {passwordmatch && (
-              <div className="bg-red-600 w-80 h-10 flex items-center rounded-md text-white" role="alert">
-                <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn&apos;t Match!!</p>
-              </div>
-            )}
+          {showAlert && (
+            <div className="bg-yellow-300 w-89 h-10 flex items-center rounded-md text-white" role="alert">
+              <strong className="ml-3">Hey!</strong> <p className="ml-3">Please fill all the fields!!</p>
+            </div>
+          )}
+          {passwordmatch && (
+            <div className="bg-red-600 w-90 h-10 flex items-center rounded-md text-white" role="alert">
+              <strong className="ml-3">Hey!</strong> <p className="ml-3">Your Password Doesn&apos;t Match!!</p>
+            </div>
+          )}
+          {showSuccess && (
+            <div className="bg-green-500 w-90 h-10 flex items-center rounded-md text-white" role="alert">
+              <strong className="ml-3">Success!</strong> <p className="ml-3">Email successfully sent to your registered email.</p>
+            </div>
+          )}
+          {checkemail && (
+            <div className="bg-red-600 w-90 h-10 flex items-center rounded-md text-white" role="alert">
+              <strong className="ml-3">Hey!</strong> <p className="ml-3">User with this Email already exist</p>
+            </div>
+          )}
           <form>
-
             <input
               type="email"
               placeholder="Email"
@@ -131,7 +137,7 @@ export default function Signup() {
               value={user.email}
               onChange={handleInputChange}
             />
-             <input
+            <input
               type="text"
               placeholder="Username"
               name="username"
@@ -145,7 +151,6 @@ export default function Signup() {
               value={user.password}
               onChange={handleInputChange}
             />
-           
             <input
               type="password"
               placeholder="Confirm-Password"
@@ -153,7 +158,7 @@ export default function Signup() {
               value={user.confirmpassword}
               onChange={handleInputChange}
             />
-            <button  onClick={onSignup} disabled={loading}>
+            <button onClick={onSignup} disabled={loading}>
               {loading ? "Signing up..." : "Sign up"}
             </button>
           </form>
