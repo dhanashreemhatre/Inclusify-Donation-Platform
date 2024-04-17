@@ -35,7 +35,7 @@ export default function Signup() {
   };
 
   useEffect(() => {
-    let timeoutId;
+    let timeoutId: NodeJS.Timeout | undefined;
 
     // Hide alerts after 4 seconds
     if (showAlert || passwordmatch || showSuccess || checkemail) {
@@ -50,7 +50,7 @@ export default function Signup() {
     return () => clearTimeout(timeoutId);
   }, [showAlert, passwordmatch, showSuccess, checkemail]);
 
-  const onSignup = async (e) => {
+  const onSignup = async (e:any) => {
     e.preventDefault(); // Prevent default form submission behavior
 
     try {
@@ -82,7 +82,7 @@ export default function Signup() {
       } else {
         toast.error("Signup failed. Please check the console for details.");
       }
-    } catch (error) {
+    } catch (error:any) {
       setCheckEmail(true);
       console.error("Signup failed", error);
       if (error.response) {
@@ -94,7 +94,7 @@ export default function Signup() {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
