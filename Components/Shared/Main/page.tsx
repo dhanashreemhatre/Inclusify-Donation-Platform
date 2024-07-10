@@ -13,39 +13,39 @@ import Chatbot from '../../ui/Chatbot/page';
 import { FaTimes } from 'react-icons/fa';
 
 const Page = () => {
-  const [popupClosed, setPopupClosed] = useState(false);
+  // const [popupClosed, setPopupClosed] = useState(false);
 
-  useEffect(() => {
-    const closed = localStorage.getItem('popupClosed');
-    setPopupClosed(closed === 'true');
-  }, []);
+  // useEffect(() => {
+  //   const closed = localStorage.getItem('popupClosed');
+  //   setPopupClosed(closed === 'true');
+  // }, []);
 
-  const handleClosePopup = () => {
-    setPopupClosed(true);
-    localStorage.setItem('popupClosed', 'true');
-    document.body.classList.remove('popup-open'); // Remove popup-open class from body
-  };
+  // const handleClosePopup = () => {
+  //   setPopupClosed(true);
+  //   localStorage.setItem('popupClosed', 'true');
+  //   document.body.classList.remove('popup-open'); // Remove popup-open class from body
+  // };
 
-  const [popup, setPopup] = useState(false);
+  // const [popup, setPopup] = useState(false);
 
-  useEffect(() => {
-    if (!popupClosed && !localStorage.getItem('popupShown')) {
-      setPopup(true);
-      localStorage.setItem('popupShown', 'true');
-      document.body.classList.add('popup-open'); // Add popup-open class to body
-    }
-  }, [popupClosed]);
+  // useEffect(() => {
+  //   if (!popupClosed && !localStorage.getItem('popupShown')) {
+  //     setPopup(true);
+  //     localStorage.setItem('popupShown', 'true');
+  //     document.body.classList.add('popup-open'); // Add popup-open class to body
+  //   }
+  // }, [popupClosed]);
 
-  useEffect(() => {
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
 
-  const handleBeforeUnload = () => {
-    localStorage.clear(); // Clear localStorage when the browser is refreshed
-  };
+  // const handleBeforeUnload = () => {
+  //   localStorage.clear(); // Clear localStorage when the browser is refreshed
+  // };
 
   return (
     <>
@@ -60,12 +60,7 @@ const Page = () => {
         <Screen7 />
         <Footer />
       </div>
-      {popup && !popupClosed && (
-        <div className="popup-overlay">
-          <FaTimes className="close_icon" onClick={handleClosePopup} />
-          <Popup />
-        </div>
-      )}
+        
     </>
   );
 };
