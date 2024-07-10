@@ -11,44 +11,13 @@ import Footer from '../../ui/Footer/page';
 import Chatbot from '../../ui/Chatbot/page';
 
 const Page = () => {
-  // const [popupClosed, setPopupClosed] = useState(false);
+ 
 
-  // useEffect(() => {
-  //   const closed = localStorage.getItem('popupClosed');
-  //   setPopupClosed(closed === 'true');
-  // }, []);
-
-  // const handleClosePopup = () => {
-  //   setPopupClosed(true);
-  //   localStorage.setItem('popupClosed', 'true');
-  //   document.body.classList.remove('popup-open'); // Remove popup-open class from body
-  // };
-
-  // const [popup, setPopup] = useState(false);
-
-  // useEffect(() => {
-  //   if (!popupClosed && !localStorage.getItem('popupShown')) {
-  //     setPopup(true);
-  //     localStorage.setItem('popupShown', 'true');
-  //     document.body.classList.add('popup-open'); // Add popup-open class to body
-  //   }
-  // }, [popupClosed]);
-
-  // useEffect(() => {
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
-
-  // const handleBeforeUnload = () => {
-  //   localStorage.clear(); // Clear localStorage when the browser is refreshed
-  // };
-         
-
-  useEffect(()=>{
-    alert("Hey we are working on desktop view ,View the site in mobile for better experience ")
-  })
+  useEffect(() => {
+    if (window.innerWidth > 768) { // Assuming 768px is the threshold for mobile view
+      alert("Hey we are working on desktop view, View the site in mobile for better experience");
+    }
+  }, []);
   return (
     <>
       <div className="container">
