@@ -8,9 +8,7 @@ import Screen5 from '../../ui/Screen5/page';
 import Screen6 from '../../ui/Screen6/page';
 import Screen7 from '../../ui/Screen7/page';
 import Footer from '../../ui/Footer/page';
-import Popup from '../../Alert/Newsletter/page';
 import Chatbot from '../../ui/Chatbot/page';
-import { FaTimes } from 'react-icons/fa';
 
 const Page = () => {
   // const [popupClosed, setPopupClosed] = useState(false);
@@ -46,7 +44,11 @@ const Page = () => {
   // const handleBeforeUnload = () => {
   //   localStorage.clear(); // Clear localStorage when the browser is refreshed
   // };
+         
 
+  useEffect(()=>{
+    alert("Hey we are working on desktop view ,View the site in mobile for better experience ")
+  })
   return (
     <>
       <div className="container">
